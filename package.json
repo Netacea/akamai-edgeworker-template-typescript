@@ -1,11 +1,17 @@
 {
   "scripts": {
     "build": "npx tsc",
+    "lint": "eslint . --ext .ts",
     "bundle": "npm run build && webpack",
     "test:unit": "ts-node node_modules/tape/bin/tape tests/**/*.ts"
   },
   "devDependencies": {
     "@types/tape": "^4.13.2",
+    "@typescript-eslint/eslint-plugin": "^4.32.0",
+    "@typescript-eslint/parser": "^4.32.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-config-standard-with-typescript": "^21.0.1",
     "tape": "^5.3.1",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.3",
