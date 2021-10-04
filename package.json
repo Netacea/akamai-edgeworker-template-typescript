@@ -1,8 +1,8 @@
 {
   "scripts": {
     "build": "npx tsc",
-    "bundle": "webpack",
-    "test": "ts-node node_modules/tape/bin/tape tests/**/*.ts"
+    "bundle": "npm run build && webpack",
+    "test:unit": "ts-node node_modules/tape/bin/tape tests/**/*.ts"
   },
   "devDependencies": {
     "@types/tape": "^4.13.2",
