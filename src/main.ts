@@ -1,5 +1,5 @@
-const WORLD = 'world';
+const WORLD = 'World';
 
 export function hello(world: string = WORLD): string {
-  return `Hello ${world}! `;
+  return `Hello ${world}!`;
 }

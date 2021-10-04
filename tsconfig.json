@@ -2,10 +2,10 @@
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
     "target": "es5",
-    "module": "amd",
+    "module": "commonjs",
     "rootDir": "src",
-    "outFile": "dist/main.js",
-    "esModuleInterop": true,
+    "outDir": "dist/",
+    "esModuleInterop": false,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true
