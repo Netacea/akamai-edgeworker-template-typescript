@@ -5,9 +5,9 @@ on:
       - main
 
 jobs:
-  unit-test:
+  lint-unit-test:
     runs-on: ubuntu-latest
-    name: Run Unit Tests
+    name: Lint and Run Unit Tests
     steps:
       - uses: actions/checkout@v2
       - name: Setup node
@@ -17,12 +17,13 @@ jobs:
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json'
       - run: npm install
+      - run: npm run lint
       - run: npm run test:unit
   build-and-bundle:
     runs-on: ubuntu-latest
     name: Build and Bundle
     needs: 
-      - unit-test
+      - lint-unit-test
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2

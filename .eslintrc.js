@@ -6,16 +6,17 @@ module.exports = {
   root: true,
   parserOptions: {
     parser: '@typescript-eslint/parser',
+    project: './tsconfig.json',
     sourceType: 'module',
     ecmaVersion: 2018
   },
   plugins: [
-    "@typescript-eslint"
+    '@typescript-eslint',
+    '@typescript-eslint/eslint-plugin'
   ],
   extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    'standard',
+    'standard-with-typescript'
   ],
   rules: {
     'generator-star-spacing': 'off',
@@ -67,7 +68,7 @@ module.exports = {
     'max-lines': ['error', 700]
   },
   overrides: [{
-    files: ['*.test.js', '*.spec.js'],
+    files: ['*.test.ts'],
     rules: {
       'no-magic-numbers': 0,
       'max-nested-callbacks': 0,
