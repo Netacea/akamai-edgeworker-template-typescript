@@ -15,6 +15,9 @@ FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-${VARIANT}
 # [Optional] Uncomment if you want to install more global node packages
 # RUN su node -c "npm install -g <your-package-list -here>"
 
-RUN wget -O /tmp/akamai-121 https://github.com/akamai/cli/releases/download/1.2.1/akamai-1.2.1-linuxamd64 
-RUN chmod +x /tmp/akamai-121
-RUN mv /tmp/akamai-121 /usr/local/bin/akamai
+RUN apt update
+RUN apt install default-jdk -y
+
+RUN wget -O /tmp/akamai-130 https://github.com/akamai/cli/releases/download/1.3.0/akamai-1.3.0-linuxamd64 
+RUN chmod +x /tmp/akamai-130
+RUN mv /tmp/akamai-130 /usr/local/bin/akamai

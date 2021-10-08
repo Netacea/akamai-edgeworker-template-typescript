@@ -9,11 +9,13 @@
 			"VARIANT": "16"
 		}
 	},
+	"forwardPorts": [9550],
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": {},
 	"mounts": [
-		"source=${env:HOME}${env:USERPROFILE}/.ssh,target=/home/node/.ssh,type=bind"
+		"source=${env:HOME}${env:USERPROFILE}/.ssh,target=/home/node/.ssh,type=bind",
+		"source=${env:HOME}${env:USERPROFILE}/.edgerc,target=/home/node/.edgerc,type=bind"
 	],
 
 	// Add the IDs of extensions you want installed when the container is created.
