@@ -1,7 +1,8 @@
 {
   "type": "commonjs",
   "config": {
-    "ewid": "5024"
+    "ewid": "7678",
+    "version": "1.2"
   },
   "scripts": {
     "build": "rollup -c",
@@ -9,6 +10,9 @@
     "bundle": "npm run build && npx rollup --c && cp dist/main.js bundle/main.js && cd bundle && tar -czvf edgeworker.tgz main.js bundle.json",
     "deploy:sandbox:new": "akamai sandbox add-edgeworker $npm_package_config_ewid ./bundle/edgeworker.tgz",
     "deploy:sandbox:update": "akamai sandbox update-edgeworker $npm_package_config_ewid ./bundle/edgeworker.tgz",
+    "deploy:update": "akamai edgeworkers upload $npm_package_config_ewid --bundle ./bundle/edgeworker.tgz",
+    "activate:latest:staging": "akamai edgeworkers activate $npm_package_config_ewid Staging $npm_package_config_version",
+    "activate:latest:production": "akamai edgeworkers activate $npm_package_config_ewid Production $npm_package_config_version",
     "sandbox:start": "akamai sandbox start",
     "test:unit": "ts-node node_modules/tape/bin/tape tests/**/*.ts"
   },
