@@ -4,6 +4,14 @@ An Akamai integration has to be a pair of files (`main.js` and `bundle.json`), a
 
 [Akamai EdgeWorker bundle documentation](https://techdocs.akamai.com/edgeworkers/docs/create-a-code-bundle)
 
+# Prerequisites
+
+You will need:
+- The Akamai CLI (included in the devcontainer of this repo)
+- To be logged in with the CLI to your akamai account (TODO: Find a documentation link)
+- A property setup in Akamai where the edgeworker will be deployed
+  - This property **must** used Enhanced TLS in Akamai, or the edgeworker will not be called.
+
 ## Running a sandbox
 Note: This container assumes you already have a `.edgerc` file at `${env:HOME}${env:USERPROFILE}/.edgerc`, configured per the [Akamai Documentation](https://developer.akamai.com/api/getting-started#edgercfile).
 
