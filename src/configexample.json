@@ -1,0 +1,22 @@
+{
+  "apiKey": "string",
+  "secretKey": "string",
+  "captchaSiteKey": "string",
+  "captchaSecretKey": "string",
+  "timeout": 0,
+  "retries": 0,
+  "ingestServiceUrl": "string",
+  "mitigationServiceUrl": "string",
+  "mitigationType": "MITIGATE | INJECT | INGEST",
+  "ingestType": "HTTP | KINESIS",
+  "ingestApiKey": "string",
+  "kinesis": {
+    "kinesisStreamName": "string",
+    "kinesisAccessKey": "string",
+    "kinesisSecretKey": "string",
+    "logBatchSize": 0,
+    "maxLogAgeSeconds": 0
+  },
+  "logVersion": "V1 | V2",
+  "ingestEnabled": "true | false"
+}

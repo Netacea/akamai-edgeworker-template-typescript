@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2018",
+    "sourceMap": true,
+    "strict": true,
+    "lib": ["es2018", "WebWorker"],
+    "outDir": "./dist",
+    "resolveJsonModule": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./types"
+    ],
+    "types": ["@types/akamai-edgeworkers"]
+  },
+  "include": [
+    "index.ts",
+    "src/**/*.ts",
+    "types/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
+

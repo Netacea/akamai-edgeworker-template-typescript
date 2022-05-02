@@ -2,7 +2,10 @@
   "extends": "./tsconfig.build.json",
   "compilerOptions": {
     "experimentalDecorators": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@netacea/*": ["../../modules/*/src"]
+    }
   },
   "include": [
     "index.ts",
