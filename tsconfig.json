@@ -1,13 +1,17 @@
 {
-  "extends": "./tsconfig.build.json",
   "compilerOptions": {
-    "experimentalDecorators": true,
-    "baseUrl": "."
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    "target": "es5",
+    "module": "commonjs",
+    //"rootDir": "src",
+    "outDir": "dist/",
+    "esModuleInterop": false,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
   },
   "include": [
-    "index.ts",
     "src/**/*.ts",
-    "tests/**/*.ts",
-    "types/*.ts"
+    "tests/**/*.ts"
   ]
 }
