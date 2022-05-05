@@ -5,9 +5,9 @@
 
 A simple Akamai EdgeWorker with Netacea built in.
 
-# Prerequisites
+## 💡 Getting Started
 
-In order to properly deploy Netacea Akamai integration it is required to create EdgeWorker ID and properly configure properties within a group.
+In order to properly deploy Netacea Akamai integration it is required to create EdgeWorker ID and properly configure Property within a group.
 
 1. Akamai EdgeWorker - Create an EdgeWorker ID
     a. Name could be whatever fits your needs. 
@@ -92,7 +92,7 @@ In order to properly deploy Netacea Akamai integration it is required to create 
         - Honor Origin Base Path: Yes
         - Origin Purge Query Parameter: originId
     
-    f. New Rule (groouped under Conditional Origin Group): Conditional Origin Definition
+    f. New Rule (grouped under Conditional Origin Group): Conditional Origin Definition
      - Criteria
         - If: 
             - "Conditional Origin ID" is defined as: "mitigations"
@@ -169,8 +169,8 @@ In order to properly deploy Netacea Akamai integration it is required to create 
                 - Modify Request Path: No
             - Advanced
                 - Description: Add "x-ew-failover:true" header on failover request
-                - Advanced XML: __TODO:__ better formatting of below?
-                        ```
+                - Advanced XML (NOTE: This part can only be set by an Akamai engineer):
+                - 
                         <forward:availability.fail-action2>
                         <add-header>
                             <status>on</status>
@@ -178,12 +178,11 @@ In order to properly deploy Netacea Akamai integration it is required to create 
                             <value>%(PMUSER_FAILOVER_SECRET)</value>
                         </add-header>
                         </forward:availability.fail-action2>
-                        ```
-                    - NOTE: This part can only be set by an Akamai engineer.
 
 
-TO BE CONTINUED...
-
+##### ✔️ Akamai configuration finished!
+Now you are almost ready to deploy the code the Akamai.
+What's left is running `npm install` and setting the configuration file.
 ## Running a sandbox
 Note: This container assumes you already have a `.edgerc` file at `${env:HOME}${env:USERPROFILE}/.edgerc`, configured per the [Akamai Documentation](https://developer.akamai.com/api/getting-started#edgercfile).
 
@@ -231,3 +230,22 @@ TODO: Need to investigate this
 ## Developer note
 
 Sometimes, the sandbox doesn't immediately pickup the configuration from the remote - if you find your edgeworker is being ignored in the sandbox, try restarting your sandbox a few times.
+
+## 💻 Developing
+If you need to extend or enhance the functionality of the Akamai EdgeWorker, the documentation can be found [here](https://developer.akamai.com/akamai-edgeworkers-overview).
+Code extensions should be made in `./src/index.ts`.
+
+Please ensure that as a minumum your `onClientRequest` handler contains:
+```javascript
+await worker.requestHandler(request)
+```
+and your `onClientResponse` handler contains:
+```javascript
+ await worker.responseHandler(request, response)
+```
+## ☁ Deploying
+__TODO__: Which command in Akamai? 
+`npm run publish` is your friend. This will publish to your cloudfront distribution using serverless
+
+## ❗ Issues
+If you run into issues with this specific project, please feel free to file an issue [here](https://github.com/Netacea/akamai-edgeworker-template-typescript/issues).
