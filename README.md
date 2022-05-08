@@ -53,7 +53,7 @@ In order to properly deploy Netacea Akamai integration it is required to create 
             - Use SNI TLS Extension: Yes
             - Match CN/SAN To: {{Origin Hostname}} {{Forward Host Header}}
             - Trust: Specific Certificates (pinning)
-            - Specific Certificates: __TODO:__ any specific certificate or the one from documentation?
+            - Specific Certificates: Select your domain's certificate
             - HTTP Port: 80
             - HTTPS Port: 443
         - Allow POST
@@ -79,7 +79,7 @@ In order to properly deploy Netacea Akamai integration it is required to create 
             - Use SNI TLS Extension: Yes
             - Match CN/SAN To: {{Origin Hostname}} {{Forward Host Header}}
             - Trust: Specific Certificates (pinning)
-            - Specific Certificates: __TODO:__ any specific certificate or the one from documentation?
+            - Specific Certificates: Select your domain's certificate
             - HTTP Port: 80
             - HTTPS Port: 443
         - Allow POST
@@ -183,6 +183,7 @@ In order to properly deploy Netacea Akamai integration it is required to create 
 ##### ✔️ Akamai configuration finished!
 Now you are almost ready to deploy the code the Akamai.
 What's left is running `npm install` and setting the configuration file.
+
 ## Running a sandbox
 Note: This container assumes you already have a `.edgerc` file at `${env:HOME}${env:USERPROFILE}/.edgerc`, configured per the [Akamai Documentation](https://developer.akamai.com/api/getting-started#edgercfile).
 
