@@ -18,6 +18,8 @@ In order to properly deploy Netacea Akamai integration it is required to create 
     * PMUSER_NETACEA_API_KEY - Initial Value should contain api key; Security: Sensitive
     * PMUSER_NETACEA_SECRET_KEY - Initial Value should contain secret key; Security: Sensitive
     * PMUSER_CLIENT_IP - you can leave it blank; Security: Visible
+    * PMUSER_NETACEA_MITIGATION_TYPE - Initial Value should be set to MITIGATE or INJECT or INGEST; Security: Visible
+    * PMUSER_NETACEA_INGEST_TYPE - Initial Value should be HTTP; Security: Visible
     
     b. New Rule: EdgeWorker
     * Criteria
@@ -152,8 +154,6 @@ In order to properly deploy Netacea Akamai integration it is required to create 
                 - Action: Remove
                 - Select Header Name: Other...
                 - Custom Header Name: x-ew-failover
-    - Modify EdgeWorker Rule
-        - __TODO:__ as per Richard's comment (in Akamai Documentation, Miro) from March, 14th is it needed?
     - New Rule: Netacea Fail Open
         - Description: This can live outside of the Company rule group if more than one origin is being configured for protection.
         - Criteria
@@ -184,14 +184,14 @@ In order to properly deploy Netacea Akamai integration it is required to create 
 Now you are almost ready to deploy the code the Akamai.
 What's left is running `npm install` and setting the configuration file.
 
-## Running a sandbox
+## Running a sandbox TODO: Check whether the instructions are good to use
 Note: This container assumes you already have a `.edgerc` file at `${env:HOME}${env:USERPROFILE}/.edgerc`, configured per the [Akamai Documentation](https://developer.akamai.com/api/getting-started#edgercfile).
 
 - Run `akamai install sandbox` to install the tooling
 - Run `akamai sandbox create --name YOUR-SANDBOX-NAME --hostname www.yourhostname.com` to create the sandbox
   - NB: This requires you to have a property setup already with this hostname
 - Run `akamai sandbox start` to run the sandbox, which will be available on port `9550`
-- Update yout `hosts` file to point `www.yourhostname.com` at `127.0.0.1`
+- Update your `hosts` file to point `www.yourhostname.com` at `127.0.0.1`
 
 ## Setting up an edgeworker and assigning to the property - Console
 - Create and edgeworker ID
@@ -217,14 +217,12 @@ TODO: Need to investigate this
 ## Deploying the worker to your sandbox
 
 - Run `npm run bundle` to create your bundled webworker
-- TODO: Create a bundle.json in a nice way
 - Run `akamai sandbox add-edgeworker $EDGEWORKER_ID ./bundle/edgeworker.tgz` to add the bundle to the sandbox
 - Run `akamai sandbox start`
 
 ## Updating the worker on your sandbox
 
 - Run `npm run bundle` to create your bundled webworker
-- TODO: Create a bundle.json in a nice way
 - Run `akamai sandbox update-edgeworker $EDGEWORKER_ID ./bundle/edgeworker.tgz` to update the bundle on the edgeworker
 - Run `akamai sandbox start`
 
@@ -244,9 +242,6 @@ and your `onClientResponse` handler contains:
 ```javascript
  await worker.responseHandler(request, response)
 ```
-## ☁ Deploying
-__TODO__: Which command in Akamai? 
-`npm run publish` is your friend. This will publish to your cloudfront distribution using serverless
 
 ## ❗ Issues
 If you run into issues with this specific project, please feel free to file an issue [here](https://github.com/Netacea/akamai-edgeworker-template-typescript/issues).
