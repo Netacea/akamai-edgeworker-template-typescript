@@ -184,47 +184,8 @@ In order to properly deploy Netacea Akamai integration it is required to create 
 Now you are almost ready to deploy the code the Akamai.
 What's left is running `npm install` and setting the configuration file.
 
-## Running a sandbox TODO: Check whether the instructions are good to use
-Note: This container assumes you already have a `.edgerc` file at `${env:HOME}${env:USERPROFILE}/.edgerc`, configured per the [Akamai Documentation](https://developer.akamai.com/api/getting-started#edgercfile).
-
-- Run `akamai install sandbox` to install the tooling
-- Run `akamai sandbox create --name YOUR-SANDBOX-NAME --hostname www.yourhostname.com` to create the sandbox
-  - NB: This requires you to have a property setup already with this hostname
-- Run `akamai sandbox start` to run the sandbox, which will be available on port `9550`
-- Update your `hosts` file to point `www.yourhostname.com` at `127.0.0.1`
-
-## Setting up an edgeworker and assigning to the property - Console
-- Create and edgeworker ID
-  - Open Edgeworkers Management
-  - Click 'Create EdgeWorker ID'
-  - Give the Edgeworker a name, assign it to the group containing your property, and give it the `Dynamic Compute` Resource tier.
-  - Set the npm `package.json` with the edgeworker ID
-- Setup Akamai property configuration
-  - Open the property
-  - Create or Select your property version
-  - Add a Rule
-    - Critera: Add any filtering you want to paths which the edgeworker should apply to
-    - Behaviors: 
-        - Add the "Allow POST" behavior
-        - Edgeworkers: Enable, and select the idenfier of your new edgeworker.
-- Push property configuration to your sandbox
-  - Click the "Push to Sandbox" button in the header of "Property Configuration Settings"
-  - Select your sandbox
-
-## Setting up an edgeworker and assigning to the property - CLI
-TODO: Need to investigate this
-
-## Deploying the worker to your sandbox
-
-- Run `npm run bundle` to create your bundled webworker
-- Run `akamai sandbox add-edgeworker $EDGEWORKER_ID ./bundle/edgeworker.tgz` to add the bundle to the sandbox
-- Run `akamai sandbox start`
-
-## Updating the worker on your sandbox
-
-- Run `npm run bundle` to create your bundled webworker
-- Run `akamai sandbox update-edgeworker $EDGEWORKER_ID ./bundle/edgeworker.tgz` to update the bundle on the edgeworker
-- Run `akamai sandbox start`
+## Running a sandbox
+If you would like to run a sandbox please refer to the [official Akamai documentation](https://developer.akamai.com/tools/akamai-sandbox) where you can find proper instructions.
 
 ## Developer note
 
