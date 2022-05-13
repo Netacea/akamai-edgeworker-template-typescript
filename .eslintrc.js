@@ -4,23 +4,25 @@ module.exports = {
     node: true
   },
   root: true,
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    parser: '@typescript-eslint/parser',
-    project: './tsconfig.json',
     sourceType: 'module',
-    ecmaVersion: 2018
+    ecmaFeatures: {
+      modules: true
+    },
+    project: [
+      './tsconfig.json'
+    ]
   },
   plugins: [
-    '@typescript-eslint',
-    '@typescript-eslint/eslint-plugin'
+    'typescript'
   ],
-  extends: [
-    'standard',
-    'standard-with-typescript'
-  ],
+  extends: 'standard-with-typescript',
   rules: {
+    'no-unused-vars': 'off',
+    'typescript/no-unused-vars': 'error',
     'generator-star-spacing': 'off',
-    'no-debugger': process.env.NODE_ENV === 'prod' ? 'error' : 'off',
+    'no-debugger': 'off',
     'prefer-destructuring': ['error',
       {
         VariableDeclarator: {
@@ -40,7 +42,7 @@ module.exports = {
     'prefer-const': 'error',
     'curly': ['error', 'multi-line', 'consistent'],
     'max-statements-per-line': ['error', {
-      max: 1
+      'max': 1
     }],
     'no-else-return': 'error',
     'no-loop-func': 'error',
@@ -54,7 +56,7 @@ module.exports = {
     'indent': [
       'error',
       2,
-      { SwitchCase: 2 }
+      { SwitchCase: 1 }
     ],
     'linebreak-style': [
       'error',
@@ -65,19 +67,10 @@ module.exports = {
     'complexity': ['error', 10],
     'max-depth': ['error', 5],
     'max-len': ['error', 120],
-    'max-lines': ['error', 700]
-  },
-  overrides: [{
-    files: ['*.test.ts'],
-    rules: {
-      'no-magic-numbers': 0,
-      'max-nested-callbacks': 0,
-      'max-lines-per-function': 0,
-      'complexity': 0,
-      'max-depth': 0,
-      'max-len': 0,
-      'max-lines': 0,
-      'no-console': 0
-    }
-  }]
+    'max-lines': ['error', 700],
+    '@typescript-eslint/no-extraneous-class': 'off',
+    '@typescript-eslint/no-misused-promises': 'off', // disabled due to tape
+    'no-return-await': 'off',
+    'indent': 'off'
+  }
 }

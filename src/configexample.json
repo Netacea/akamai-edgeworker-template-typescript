@@ -1,0 +1,13 @@
+{
+  "captchaSiteKey": "string",
+  "captchaSecretKey": "string",
+  "timeout": 0,
+  "retries": 0,
+  "ingestServiceUrl": "string",
+  "mitigationServiceUrl": "string",
+  "ingestApiKey": "string",
+  "kinesis": {
+  },
+  "logVersion": "V1 | V2",
+  "ingestEnabled": "true | false"
+}
