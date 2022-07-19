@@ -9,7 +9,8 @@
   },
   "scripts": {
     "build": "npx tsc",
-    "lint": "eslint . --ext .ts",
+    "lint": "npx eslint . --ext .ts",
+    "lint:fix": "npx eslint . --ext .ts --fix",
     "bundle": "npm run build && webpack",
     "test:unit": "ts-node node_modules/tape/bin/tape tests/**/*.ts",
     "ewbundle": "bash ./scripts/deploy.bash"
