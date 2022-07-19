@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+      "module": "ES2020",
+      "target": "ES2020",
+      "sourceMap": true,
+      "strict": true,
+      "lib": ["es2020", "WebWorker"],
+      "outDir": "./dist",
+      "resolveJsonModule": true,
+      "moduleResolution": "node",
+      "declaration": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "rootDir": "../../",
+      "paths": {
+        "@netacea/*": [
+          "../../modules/*/src",
+          "../../integrations/*/src"
+        ]
+      },
+      "typeRoots": [
+        "./node_modules/@types",
+        "./types"
+      ],
+      "types": ["@types/akamai-edgeworkers", "@types/node"]
+    },
+    "include": [
+      "index.ts",
+      "src/**/*.ts",
+      "types/*.ts"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+  }
+  
+  
