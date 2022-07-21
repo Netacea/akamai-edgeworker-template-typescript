@@ -1,6 +1,7 @@
-import NetaceaAkamai from '@netacea/akamai'
+import NetaceaAkamai, { AkamaiConstructorArgs } from '@netacea/akamai'
+import * as config from './config.json'
 
-const worker = new NetaceaAkamai({})
+const worker = new NetaceaAkamai(config as AkamaiConstructorArgs)
 
 export async function onClientRequest (request: EW.IngressClientRequest): Promise<void> {
   await worker.requestHandler(request)
