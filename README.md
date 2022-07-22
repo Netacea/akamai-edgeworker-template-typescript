@@ -5,6 +5,9 @@
 
 A simple Akamai EdgeWorker with Netacea built in.
 
+## ❗ Note
+Currently we have a workaround in place to get around some rollup issues. We generate the main.js that will ultimately go in the bundle and then do some string replacements to get the code in the state we want. This is overly brittle and will look to amend with a better solution asap. The work around can be found in rollup.config.js lines 22-25 and lines 30-31.
+
 ## 💡 Getting Started
 
 In order to properly deploy Netacea Akamai integration it is required to create EdgeWorker ID and properly configure Property within a group.

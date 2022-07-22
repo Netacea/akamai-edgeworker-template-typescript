@@ -1,17 +1,56 @@
 {
+  "name": "akamai",
+  "version": "1.0.0",
+  "description": "Akamai Integration Usage Example",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "npx tsc",
-    "lint": "eslint . --ext .ts",
+    "lint": "npx eslint . --ext .ts",
+    "lint:fix": "npx eslint . --ext .ts --fix",
     "bundle": "npm run build && webpack",
-    "test:unit": "ts-node node_modules/tape/bin/tape tests/**/*.ts"
+    "test:unit": "ts-node node_modules/tape/bin/tape tests/**/*.ts",
+    "ewbundle": "bash ./scripts/deploy.bash"
   },
   "devDependencies": {
-    "@types/tape": "^4.13.2",
-    "@typescript-eslint/eslint-plugin": "^4.32.0",
-    "@typescript-eslint/parser": "^4.32.0",
-    "eslint": "^7.32.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-config-standard-with-typescript": "^21.0.1",
-    "typescript": "^4.4.3"
+    "@rollup/plugin-alias": "^3.1.8",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-inject": "^4.0.3",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-replace": "^4.0.0",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@types/akamai-edgeworkers": "^1.0.3",
+    "@types/crypto-js": "^4.0.2",
+    "@types/node": "^14.11.2",
+    "@types/node-fetch": "^2.5.7",
+    "@types/sinon": "^9.0.8",
+    "@types/tape": "^4.13.0",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "autocannon": "^7.6.0",
+    "aws4": "^1.11.0",
+    "buffer": "^6.0.3",
+    "crypto-js": "^4.1.1",
+    "eslint": "^6.8.0",
+    "eslint-config-standard-with-typescript": "^15.0.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-typescript": "^0.14.0",
+    "rollup": "^2.59.0",
+    "rollup-plugin-includepaths": "^0.2.4",
+    "rollup-plugin-ts-paths": "^1.0.5",
+    "rollup-plugin-typescript-paths": "^1.3.0",
+    "tslib": "^2.0.3",
+    "typescript": "^4.0.3",
+    "url": "^0.11.0"
+  },
+  "dependencies": {
+    "@netacea/akamai": "^1.3.9"
   }
 }
