@@ -24,6 +24,7 @@ rl.on('close', function() {
         versions.sort((a, b) => (a[0] - b[0]) || (a[1] - b[1]) || (a[2] - b[2]))
         current = versions.pop()
     }
+    current[0] = JSON.stringify(versions)
     current[2] += 1
     process.stdout.write(current.join('.'))
 })

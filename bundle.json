@@ -1,5 +1,4 @@
 {
-    "edgeworker-version": "0.0.1",
-    "description": "Netacea's Akamai EdgeWorker"
-  }
-  
+  "edgeworker-version": "1.0.1",
+  "description": "Netacea's Akamai EdgeWorker"
+}
