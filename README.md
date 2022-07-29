@@ -105,7 +105,7 @@ In order to properly deploy Netacea Akamai integration it is required to create 
     - Behaviors
         - Origin Server
             - Origin Type: Your Origin
-            - Origin Server Hostname: mitigations.netacea-uat.net
+            - Origin Server Hostname: Mitigations URL provided by Netacea
             - Forward Host Header: Incoming Host Header
             - Cache Key Hostname: Origin Hostname
             - Supports Gzip Compression: Yes
