@@ -1,0 +1,8 @@
+{
+    "apiKey": "",
+    "secretKey": "",
+    "ingestServiceUrl": "ingest.url",
+    "mitigationServiceUrl": "mitigations.url",
+    "mitigationType": "MITIGATE",
+    "ingestType": "HTTP"
+  }
