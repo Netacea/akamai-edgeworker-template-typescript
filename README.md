@@ -51,19 +51,19 @@ In order to properly deploy Netacea Akamai integration it is required to create 
             - Forward Host Header: Origin Hostname
             - Cache Key Hostname: Origin Hostname
             - Supports Gzip Compression: Yes
-            - Send True Client IP Header: Yes
-            - True Client IP Header Name: True-Client-IP
-            - Allow Clients to Set True Client IP Header: No
+            - Send True Client IP Header: No
             - Verification Settings: Choose Your Own
-            - Use SNI TLS Extension: Yes
-            - Match CN/SAN To: {{Origin Hostname}} {{Forward Host Header}}
-            - Trust: Specific Certificates (pinning)
-            - Specific Certificates: Select your domain's certificate
-            - HTTP Port: 80
-            - HTTPS Port: 443
+                - Use SNI TLS Extension: Yes
+                - Match CN/SAN To: {{Origin Hostname}} {{Forward Host Header}}
+                - Trust: Akamai-managed Certificate Authorities Sets
+                - Akamai-managed Certificate Authority Sets:
+                    - Akamai Certificate Store: Enabled
+                    - Third Party Certificate Store: Disabled
+                - HTTP Port: 80
+                - HTTPS Port: 443
         - Allow POST
             - Behavior: Allow
-            - Allow POST without Content-Length header: Allow
+            - Allow POST without Content-Length header: Deny
 
     d. New Rule: Mitigation Origin
     - Criteria
@@ -77,19 +77,19 @@ In order to properly deploy Netacea Akamai integration it is required to create 
             - Forward Host Header: Origin Hostname
             - Cache Key Hostname: Origin Hostname
             - Supports Gzip Compression: Yes
-            - Send True Client IP Header: Yes
-            - True Client IP Header Name: True-Client-IP
-            - Allow Clients to Set True Client IP Header: No
+            - Send True Client IP Header: No
             - Verification Settings: Choose Your Own
-            - Use SNI TLS Extension: Yes
-            - Match CN/SAN To: {{Origin Hostname}} {{Forward Host Header}}
-            - Trust: Specific Certificates (pinning)
-            - Specific Certificates: Select your domain's certificate
-            - HTTP Port: 80
-            - HTTPS Port: 443
+                - Use SNI TLS Extension: Yes
+                - Match CN/SAN To: {{Origin Hostname}} {{Forward Host Header}}
+                - Trust: Akamai-managed Certificate Authorities Sets
+                - Akamai-managed Certificate Authority Sets:
+                    - Akamai Certificate Store: Enabled
+                    - Third Party Certificate Store: Disabled
+                - HTTP Port: 80
+                - HTTPS Port: 443
         - Allow POST
             - Behavior: Allow
-            - Allow POST without Content-Length header: Allow
+            - Allow POST without Content-Length header: Deny
 
     e. New Rule: Conditional Origin Group
     - Allow Condtional Origins
@@ -106,22 +106,22 @@ In order to properly deploy Netacea Akamai integration it is required to create 
         - Origin Server
             - Origin Type: Your Origin
             - Origin Server Hostname: Mitigations URL provided by Netacea
-            - Forward Host Header: Incoming Host Header
+            - Forward Host Header: Origin Hostname
             - Cache Key Hostname: Origin Hostname
             - Supports Gzip Compression: Yes
             - Send True Client IP Header: No
             - Verification Settings: Choose Your Own
-            - Use SNI TLS Extension: No
-            - Match CN/SAN To: {{Origin Hostname}} {{Forward Host Header}}
-            - Trust: Akamai-managed Certificate Authorities Sets
-            - Akamai-managed Certificate Authority Sets:
-                - Akamai Certificate Store: Enabled
-                - Third Party Certificate Store: Disabled
-            - HTTP Port: 80
-            - HTTPS Port: 443
+                - Use SNI TLS Extension: Yes
+                - Match CN/SAN To: {{Origin Hostname}} {{Forward Host Header}}
+                - Trust: Akamai-managed Certificate Authorities Sets
+                - Akamai-managed Certificate Authority Sets:
+                    - Akamai Certificate Store: Enabled
+                    - Third Party Certificate Store: Disabled
+                - HTTP Port: 80
+                - HTTPS Port: 443
         - Allow POST
             - Behavior: Allow
-            - Allow POST without Content-Length header: Allow
+            - Allow POST without Content-Length header: Deny
 
     g. Fail Open
     - Add to the Property Variables following ones:
