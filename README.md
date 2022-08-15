@@ -63,7 +63,7 @@ In order to properly deploy Netacea Akamai integration it is required to create 
                 - HTTPS Port: 443
         - Allow POST
             - Behavior: Allow
-            - Allow POST without Content-Length header: Deny
+            - Allow POST without Content-Length header: Allow
 
     d. New Rule: Mitigation Origin
     - Criteria
@@ -89,7 +89,7 @@ In order to properly deploy Netacea Akamai integration it is required to create 
                 - HTTPS Port: 443
         - Allow POST
             - Behavior: Allow
-            - Allow POST without Content-Length header: Deny
+            - Allow POST without Content-Length header: Allow
 
     e. New Rule: Conditional Origin Group
     - Allow Condtional Origins
@@ -121,7 +121,7 @@ In order to properly deploy Netacea Akamai integration it is required to create 
                 - HTTPS Port: 443
         - Allow POST
             - Behavior: Allow
-            - Allow POST without Content-Length header: Deny
+            - Allow POST without Content-Length header: Allow
 
     g. Fail Open
     - Add to the Property Variables following ones:
