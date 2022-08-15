@@ -13,7 +13,7 @@ Currently we have a workaround in place to get around some rollup issues. We gen
 In order to properly deploy Netacea Akamai integration it is required to create EdgeWorker ID and properly configure Property within a group.
 
 1. Akamai EdgeWorker - Create an EdgeWorker ID
-    a. Name could be whatever fits your needs. 
+    a. Name could be whatever fits your needs.
     b. In the Group selection select one where you will have property to set up for this integration.
     c. It is important that the worker is resource tier 200, i.e. Dynamic Compute. The lower resource tier is not sufficient for our needs.
 2. Akamai Property Configuration
@@ -23,27 +23,27 @@ In order to properly deploy Netacea Akamai integration it is required to create 
     * PMUSER_CLIENT_IP - you can leave it blank; Security: Visible
     * PMUSER_NETACEA_MITIGATION_TYPE - Initial Value should be set to MITIGATE or INJECT or INGEST; Security: Visible
     * PMUSER_NETACEA_INGEST_TYPE - Initial Value should be HTTP; Security: Visible
-    
+
     b. New Rule: EdgeWorker
     * Criteria
-        * If: 
+        * If:
             * Request Header: "X-Netacea-ProxyPass" is not one of: "ingest" "mitigation"
-            * NOTE: We skip the EdgeWorker on subrequests destined for the Mitigation or Ingest service. 
+            * NOTE: We skip the EdgeWorker on subrequests destined for the Mitigation or Ingest service.
     * Behaviors
         * Set Variable
-            * Variable: PMUSER_CLIENT_IP 
+            * Variable: PMUSER_CLIENT_IP
             * Create Value From: Expression
             * Expression: {{builtin.AK_CLIENT_REAL_IP}}
             * Operation: None
         * EdgeWorkers
-            * Enbable: ON
+            * Enable: ON
             * Identifier: here you select EdgeWorker ID that you have created in step 1
-    
+
     c. New Rule: Ingest Origin
     - Criteria
-        - If: 
+        - If:
             - Request Header: "X-Netacea-ProxyPass" is one of: "ingest"
-            - NOTE: The Worker will add this header to a subrequest when it wants to make a call to the Ingest Service. 
+            - NOTE: The Worker will add this header to a subrequest when it wants to make a call to the Ingest Service.
     - Behaviors
         - Origin Server
             - Origin Type: Your Origin
@@ -64,12 +64,12 @@ In order to properly deploy Netacea Akamai integration it is required to create 
         - Allow POST
             - Behavior: Allow
             - Allow POST without Content-Length header: Allow
-            
+
     d. New Rule: Mitigation Origin
     - Criteria
-        - If: 
+        - If:
             - Request Header: "X-Netacea-ProxyPass" is one of: "mitigation"
-            - NOTE: The Worker will add this header to a subrequest when it wants to make a call to the Mitigation Service. 
+            - NOTE: The Worker will add this header to a subrequest when it wants to make a call to the Mitigation Service.
     - Behaviors
         - Origin Server
             - Origin Type: Your Origin
@@ -90,18 +90,18 @@ In order to properly deploy Netacea Akamai integration it is required to create 
         - Allow POST
             - Behavior: Allow
             - Allow POST without Content-Length header: Allow
-            
+
     e. New Rule: Conditional Origin Group
     - Allow Condtional Origins
         - Enable: Yes
         - Honor Origin Base Path: Yes
         - Origin Purge Query Parameter: originId
-    
+
     f. New Rule (grouped under Conditional Origin Group): Conditional Origin Definition
      - Criteria
-        - If: 
+        - If:
             - "Conditional Origin ID" is defined as: "mitigations"
-            - NOTE: The Worker will add this header to a subrequest when it wants to make a call to the Mitigation Service. 
+            - NOTE: The Worker will add this header to a subrequest when it wants to make a call to the Mitigation Service.
     - Behaviors
         - Origin Server
             - Origin Type: Your Origin
@@ -122,7 +122,7 @@ In order to properly deploy Netacea Akamai integration it is required to create 
         - Allow POST
             - Behavior: Allow
             - Allow POST without Content-Length header: Allow
-    
+
     g. Fail Open
     - Add to the Property Variables following ones:
         - PMUSER_ORIG_HOST
@@ -168,12 +168,12 @@ In order to properly deploy Netacea Akamai integration it is required to create 
             - Site Failover
                 - Enable: On
                 - Action: Use alternate hostname in this property
-                - Alterante Hostname in This: {{user.PMUSER_ORIG_HOST}}
+                - Alternative Hostname in This: {{user.PMUSER_ORIG_HOST}}
                 - Modify Request Path: No
             - Advanced
                 - Description: Add "x-ew-failover:true" header on failover request
                 - Advanced XML (NOTE: This part can only be set by an Akamai engineer):
-                - 
+                -
                         <forward:availability.fail-action2>
                         <add-header>
                             <status>on</status>
