@@ -207,5 +207,13 @@ and your `onClientResponse` handler contains:
  await worker.responseHandler(request, response)
 ```
 
+## Creating the Akamai Bundle
+The edgeworker requires a code bundle with a main.js file and a bundle.js that defines the version. You need to have created a src/config.js file with your configuration details. Then update the bundle.js with an appropriate version and description for your bundle. Finally run the following commands at the root level of this repository.
+
+```bash
+npm i
+npm run ewbundle
+```
+
 ## ❗ Issues
 If you run into issues with this specific project, please feel free to file an issue [here](https://github.com/Netacea/akamai-edgeworker-template-typescript/issues).

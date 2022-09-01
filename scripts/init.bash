@@ -7,11 +7,6 @@ fi
 
 cd $SCRIPTS_DIR/..
 
-if [[ "$(akamai --version)" != "akamai "* ]]; then
-    echo "Akamai CLI is not installed! Please follow README to set it up."
-    exit 1
-fi
-
 export AKAMAI_WORKER_BUNDLE='worker.tar.gz'
 
 cd $SCRIPTS_DIR

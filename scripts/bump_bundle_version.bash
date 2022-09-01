@@ -9,7 +9,7 @@ fi
 cd $SCRIPTS_DIR/..
 
 if [[ $USER_DEFINED_VER == "" ]]; then
-    export BUNDLE_VERSION=$(akamai edgeworkers list-versions $AKAMAI_WORKER_ID | node utils/bump_bundle_version.js)
+    export BUNDLE_VERSION=$(node utils/bump_bundle_version.js)
 
 elif [[ $USER_DEFINED_VER =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
     export BUNDLE_VERSION=$USER_DEFINED_VER
