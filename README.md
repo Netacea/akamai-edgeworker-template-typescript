@@ -208,7 +208,8 @@ and your `onClientResponse` handler contains:
 ```
 
 ## Creating the Akamai Bundle
-The edgeworker requires a code bundle with a main.js file and a bundle.js that defines the version. You need to have created a src/config.js file with your configuration details and then run the following commands at the root level of this repository.
+The edgeworker requires a code bundle with a main.js file and a bundle.js that defines the version. You need to have created a src/config.js file with your configuration details. Then update the bundle.js with an appropriate version and description for your bundle. Finally run the following commands at the root level of this repository.
+
 ```bash
 npm i
 npm run ewbundle
