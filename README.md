@@ -217,3 +217,14 @@ npm run ewbundle
 
 ## ❗ Issues
 If you run into issues with this specific project, please feel free to file an issue [here](https://github.com/Netacea/akamai-edgeworker-template-typescript/issues).
+
+Known Issues: 
+
+**No cookie values**
+
+If the cookie is being set but you are not seeing any cookie values then there might be an issue with request routing. 
+To retrieve the cookie values we need make a call to our MIT service. If the request isn't routing correctly the values can never be set. 
+
+**Solution:** 
+
+Please check the ALB policy - as if this policy isn't configured correctly can lead to the origin to be overwriting by another. 
