@@ -19,7 +19,7 @@ export default {
     typescript(),
     typescriptPaths(),
     replace({
-      "const response = await (0, http_request_1.httpRequest)(path, {": "const response = await httpRequest(path, {",
+      "const response = await (0, http_request_1.httpRequest)(url, {": "const response = await httpRequest(url, {",
       "import require$$2 from 'http-request';": "import { httpRequest} from 'http-request';",
       "import require$$3 from 'log';": "import { logger } from 'log';",
       "const log_1 = require$$3;": "const log_1 = logger ;",
