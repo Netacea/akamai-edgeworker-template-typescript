@@ -1,6 +1,6 @@
 {
   "name": "akamai",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Akamai Integration Usage Example",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -51,6 +51,6 @@
     "url": "^0.11.0"
   },
   "dependencies": {
-    "@netacea/akamai": "^4.4.0"
+    "@netacea/akamai": "^4.5.5"
   }
 }
