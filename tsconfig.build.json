@@ -12,12 +12,6 @@
       "esModuleInterop": true,
       "allowSyntheticDefaultImports": true,
       "rootDir": "../../",
-      "paths": {
-        "@netacea/*": [
-          "../../modules/*/src",
-          "../../integrations/*/src"
-        ]
-      },
       "typeRoots": [
         "./node_modules/@types",
         "./types"
