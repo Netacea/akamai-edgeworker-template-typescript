@@ -26,7 +26,7 @@ In order to properly deploy Netacea Akamai integration it is required to create 
     * PMUSER_NETACEA_INGEST_TYPE - Initial Value should be HTTP; Security: Visible
     * PMUSER_NETACEA_COOKIE_NAME - you can leave it blank or specify what should be the name of the cookie; Security: Visible
     * PMUSER_NETACEA_CAPT_COOKIE_NAME - you can leave it blank or specify what should be the name of the captcha cookie; Security: Visible 
-    * PMUSER_NETACEA_CAPT_REL_ASSETS - you can leave it blank or set it to 'true' in order to use "invisible" captcha page; Security: Visible
+    * PMUSER_NETACEA_CAPT_REL_ASSETS - you can leave it blank or set it to 'true' in order to allow asset links (js, css) on paths relative to the host domain; Security: Visible
 
     b. New Rule: EdgeWorker
     * Criteria
