@@ -50,6 +50,6 @@
     "url": "^0.11.0"
   },
   "dependencies": {
-    "@netacea/akamai": "^5.0.65"
+    "@netacea/akamai": "^5.0.76"
   }
 }
