@@ -9,7 +9,7 @@ fi
 cd $SCRIPTS_DIR/..
 
 if [[ $USER_DEFINED_VER == "" ]]; then
-    export BUNDLE_VERSION=$(node utils/bump_bundle_version.js)
+    export BUNDLE_VERSION=$(node utils/bump_bundle_version.cjs)
 
 elif [[ $USER_DEFINED_VER =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
     export BUNDLE_VERSION=$USER_DEFINED_VER
