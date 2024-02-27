@@ -5,7 +5,7 @@
     "sourceMap": true,
     "strict": true,
     "lib": ["es2020", "WebWorker"],
-    "outDir": "./dist",
+    "outDir": "./tsc_out",
     "resolveJsonModule": true,
     "moduleResolution": "node",
     "declaration": true,

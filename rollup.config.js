@@ -4,7 +4,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import replace from '@rollup/plugin-replace'
 
 export default {
-  input: 'dist/index.js',
+  input: 'tsc_out/index.js',
   output: {
     file: 'main.js',
     format: 'es'
