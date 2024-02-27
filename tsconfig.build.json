@@ -15,7 +15,7 @@
       "./node_modules/@types",
       "./types"
     ],
-    "types": ["@types/akamai-edgeworkers", "@types/node"]
+    "types": ["akamai-edgeworkers", "node"]
   },
   "include": [
     "index.ts",

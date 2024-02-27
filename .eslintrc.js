@@ -17,7 +17,6 @@ module.exports = {
   plugins: [
     'typescript'
   ],
-  extends: 'standard-with-typescript',
   rules: {
     'no-unused-vars': 'off',
     'typescript/no-unused-vars': 'error',
