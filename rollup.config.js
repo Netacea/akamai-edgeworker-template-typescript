@@ -1,12 +1,10 @@
-import typescript from '@rollup/plugin-typescript'
-import typescriptPaths from 'rollup-plugin-typescript-paths'
 import json from '@rollup/plugin-json'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import replace from '@rollup/plugin-replace'
 
 export default {
-  input: 'src/index.ts',
+  input: 'tsc_out/index.js',
   output: {
     file: 'main.js',
     format: 'es'
@@ -19,8 +17,6 @@ export default {
     moduleSideEffects: false
   },
   plugins: [
-    typescript(),
-    typescriptPaths(),
     commonjs(),
     nodeResolve({
       preferBuiltins: false
