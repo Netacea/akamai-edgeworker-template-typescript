@@ -1,7 +1,6 @@
 import json from '@rollup/plugin-json'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-import replace from '@rollup/plugin-replace'
 
 export default {
   input: 'tsc_out/index.js',
@@ -21,13 +20,7 @@ export default {
     nodeResolve({
       preferBuiltins: false
     }),
-    json(),
-    replace({
-      // Workaround for inadequate tree-shaking.
-      preventAssignment: true,
-      "import cryptoModule__default from 'crypto';": "const cryptoModule__default = cryptoModule;",
-      delimiters: ['', '']
-    }),
+    json()
   ],
   external: ["http-request", "create-response", "log", "crypto", "encoding"]
 };
