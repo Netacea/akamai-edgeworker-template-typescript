@@ -9,12 +9,11 @@
     "access": "public"
   },
   "scripts": {
-    "bundle": "npm run build && npm run rollup",
+    "bundle": "bash ./scripts/build_latest_bundle.sh",
     "build": "npx tsc --project tsconfig.build.json",
     "rollup": "npx rollup -c rollup.config.js",
     "lint": "npx eslint . --ext .ts",
-    "lint:fix": "npx eslint . --ext .ts --fix",
-    "update-release": "bash ./scripts/update_release.sh"
+    "lint:fix": "npx eslint . --ext .ts --fix"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",

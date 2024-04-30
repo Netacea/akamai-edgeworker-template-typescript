@@ -15,7 +15,8 @@ updated_bundle=$(jq --arg ver "$version" '.["edgeworker-version"] = $ver' bundle
 echo -n "$updated_bundle" > bundle.json
 
 # Build main.js
-npm run bundle
+npm run build
+npm run rollup
 
 # Create the release tar file
 tar -cvzf $bundle_name main.js bundle.json || exit 1
