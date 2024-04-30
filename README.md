@@ -5,9 +5,6 @@
 
 A simple Akamai EdgeWorker with Netacea built in.
 
-## ❗ Note
-Currently we have a workaround in place to get around some rollup issues. We generate the main.js that will ultimately go in the bundle and then do some string replacements to get the code in the state we want. This is overly brittle and will look to amend with a better solution asap. The work around can be found in rollup.config.js lines 22-25 and lines 30-31.
-
 ## Running a sandbox
 If you would like to run a sandbox please refer to the [official Akamai documentation](https://developer.akamai.com/tools/akamai-sandbox) where you can find proper instructions.
 
