@@ -14,7 +14,7 @@
     "rollup": "npx rollup -c rollup.config.js",
     "lint": "npx eslint . --ext .ts",
     "lint:fix": "npx eslint . --ext .ts --fix",
-    "ewbundle": "bash ./scripts/deploy.bash"
+    "update-release": "bash ./scripts/update_release.sh"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
