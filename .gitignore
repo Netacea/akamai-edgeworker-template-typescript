@@ -14,5 +14,7 @@ worker.tar.gz
 config.json
 node_modules
 
+# Ignore build assets
 dist/
 tsc_out/
+*.tar.gz

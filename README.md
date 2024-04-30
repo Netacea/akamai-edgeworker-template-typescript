@@ -32,11 +32,17 @@ and your `onClientResponse` handler contains:
 
 ## Creating the Akamai Bundle
 
-The edgeworker requires a code bundle with a main.js file and a bundle.js that defines the version. You need to have created a src/config.js file with your configuration details. Then update the bundle.js with an appropriate version and description for your bundle. Finally run the following commands at the root level of this repository.
+The edgeworker requires a code bundle with a main.js file and a bundle.js that defines the version.
+
+A ZIP bundle is attached to each
+[release](https://github.com/Netacea/akamai-edgeworker-template-typescript/releases)
+in this repository.
+
+To create this ZIP file yourself, using the latest version of the `@netacea/akamai` package, run:
 
 ```bash
-npm i
-npm run ewbundle
+npm ci
+npm run bundle
 ```
 
 ## ❗ Issues
