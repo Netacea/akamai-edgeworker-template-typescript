@@ -13,3 +13,6 @@ worker.tar.gz
 # Config file
 config.json
 node_modules
+
+dist/
+tsc_out/

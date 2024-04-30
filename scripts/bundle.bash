@@ -8,7 +8,7 @@ fi
 
 cd $SCRIPTS_DIR/..
 
-npx rollup src/index.ts -c ./rollup.config.js && \
+npm run bundle && \
 tar -cvzf $AKAMAI_WORKER_BUNDLE main.js bundle.json || exit 1
 
 cd $SCRIPTS_DIR
