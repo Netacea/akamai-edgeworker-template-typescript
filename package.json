@@ -36,6 +36,6 @@
     "url": "^0.11.3"
   },
   "dependencies": {
-    "@netacea/akamai": "^6.1.45"
+    "@netacea/akamai": "^6.1.59"
   }
 }
