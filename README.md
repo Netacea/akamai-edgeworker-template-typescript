@@ -5,14 +5,6 @@
 
 A simple Akamai EdgeWorker with Netacea built in.
 
-## Running a sandbox
-
-If you would like to run a sandbox please refer to the [official Akamai documentation](https://developer.akamai.com/tools/akamai-sandbox) where you can find proper instructions.
-
-## Developer note
-
-Sometimes, the sandbox doesn't immediately pickup the configuration from the remote - if you find your edgeworker is being ignored in the sandbox, try restarting your sandbox a few times.
-
 ## 💻 Developing
 
 If you need to extend or enhance the functionality of the Akamai EdgeWorker, the documentation can be found [here](https://developer.akamai.com/akamai-edgeworkers-overview).
