@@ -1,3 +1,5 @@
+# Netacea/Akamai EdgeWorker Template
+
 ## Summary
 
 <!-- What changed? -->
